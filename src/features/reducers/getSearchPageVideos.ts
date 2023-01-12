@@ -3,9 +3,7 @@ import axios from "axios";
 import { RootState } from "../../store";
 import { HomePageVideos } from "../../types";
 import { parseData } from "../../utils";
-import { YOUTUBE_API_URL } from "../../utils/constants";
-
-const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
+import { API_KEY, YOUTUBE_API_URL } from "../../utils/constants";
 
 export const getSearchPageVideos = createAsyncThunk(
   "youtube/searchPageVideos",

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../features/hooks";
+import { getRecommendedVideos } from "../features/reducers/getRecommendedVideos";
+import { getVideoDetails } from "../features/reducers/getVideoDetails";
 
 export default function Video() {
   const [showMore, setShowMore] = useState(false);

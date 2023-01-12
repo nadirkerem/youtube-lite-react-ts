@@ -29,7 +29,7 @@ export default function Card({ data }: { data: HomePageVideos }) {
         <div>
           <h3>
             <a href="#" className="line-clamp-2">
-              {data?.videoTitle}
+              {data?.videoTitle.toLocaleString()}
             </a>
           </h3>
           <div className="text-sm text-gray-400">
