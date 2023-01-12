@@ -7,10 +7,17 @@ import Card from "../components/Card";
 import { useAppDispatch, useAppSelector } from "../features/hooks";
 import { getHomePageVideos } from "../features/reducers/getHomePageVideos";
 import { HomePageVideos } from "../types";
+import { clearVideos } from "../features/youtubeSlice";
 
 export default function Home() {
   const dispatch = useAppDispatch();
   const videos = useAppSelector((state) => state.youtube.videos);
+
+  useEffect(() => {
+    return () => {
+      dispatch(clearVideos());
+    };
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getHomePageVideos(false));
@@ -29,7 +36,7 @@ export default function Home() {
             next={() => dispatch(getHomePageVideos(true))}
             hasMore={videos.length < 500}
             loader={<Spinner />}
-            height={650}
+            height={600}
           >
             <div className="grid grid-cols-4 gap-y-14 gap-x-8 p-8">
               {videos.map((item: HomePageVideos) => {
