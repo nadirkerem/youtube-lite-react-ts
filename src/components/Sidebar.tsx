@@ -117,7 +117,9 @@ export default function Sidebar() {
             >
               <a href="#" className="flex items-center gap-5">
                 {icon}
-                <span className="text-sm tracking-wider">{name}</span>
+                <span className="hidden text-sm tracking-wider md:block">
+                  {name}
+                </span>
               </a>
             </li>
           );
@@ -129,7 +131,9 @@ export default function Sidebar() {
             <li key={name} className={`py-3 pl-6 hover:bg-darkSecondary`}>
               <a href="#" className="flex items-center gap-5">
                 {icon}
-                <span className="text-sm tracking-wider">{name}</span>
+                <span className="hidden text-sm tracking-wider md:block">
+                  {name}
+                </span>
               </a>
             </li>
           );
@@ -141,7 +145,9 @@ export default function Sidebar() {
             <li key={name} className={`py-3 pl-6 hover:bg-darkSecondary`}>
               <a href="#" className="flex items-center gap-5">
                 {icon}
-                <span className="text-sm tracking-wider">{name}</span>
+                <span className="hidden text-sm tracking-wider md:block">
+                  {name}
+                </span>
               </a>
             </li>
           );
@@ -153,13 +159,15 @@ export default function Sidebar() {
             <li key={name} className={`py-3 pl-6 hover:bg-darkSecondary`}>
               <a href="#" className="flex items-center gap-5">
                 {icon}
-                <span className="text-sm tracking-wider">{name}</span>
+                <span className="hidden text-sm tracking-wider md:block">
+                  {name}
+                </span>
               </a>
             </li>
           );
         })}
       </ul>
-      <ul className="flex flex-wrap gap-2 p-4 text-xs font-bold  text-grayPrimary">
+      <ul className="hidden flex-wrap gap-2 p-4 text-xs font-bold text-grayPrimary lg:flex">
         {textLinks[0].map((name) => {
           return (
             <li key={name}>
@@ -168,7 +176,7 @@ export default function Sidebar() {
           );
         })}
       </ul>
-      <ul className="flex flex-wrap gap-2 p-4 text-xs font-bold text-grayPrimary">
+      <ul className="hidden flex-wrap gap-2 p-4 text-xs font-bold text-grayPrimary lg:flex">
         {textLinks[1].map((name) => {
           return (
             <li key={name}>
@@ -177,7 +185,7 @@ export default function Sidebar() {
           );
         })}
       </ul>
-      <span className="px-4 text-xs text-grayPrimary">
+      <span className="hidden px-4 text-xs text-grayPrimary lg:block">
         &copy; {new Date().getFullYear()} Google
         <br />
         <p className="px-4 pt-3 text-xs text-grayPrimary">

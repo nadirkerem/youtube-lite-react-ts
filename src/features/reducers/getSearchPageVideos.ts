@@ -19,7 +19,6 @@ const getSearchPageVideos = createAsyncThunk(
         isNext ? `pageToken=${nextPageTokenFromState}` : ""
       }`
     );
-    console.log({ items, nextPageTokenFromState, nextPageToken });
     const parsedData: HomePageVideos[] = await parseData(items);
     return { parsedData: [...videos, ...parsedData], nextPageToken };
   }

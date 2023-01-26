@@ -19,7 +19,7 @@ export default function Card({ data }: { data: HomePageVideos }) {
       </div>
       <div className="flex gap-2">
         <div className="min-w-fit">
-          <a href="#">
+          <a href={`https://www.youtube.com/c/${data.channelInfo.name}`}>
             <img
               src={data.channelInfo.image}
               alt="channel"
@@ -29,13 +29,19 @@ export default function Card({ data }: { data: HomePageVideos }) {
         </div>
         <div>
           <h3>
-            <a href="#" className="line-clamp-2">
+            <Link
+              to={`/watch/${data.videoId}`}
+              className="align-start line-clamp-2"
+            >
               {data.videoTitle}
-            </a>
+            </Link>
           </h3>
           <div className="text-xs text-gray-400">
             <div>
-              <a href="#" className="hover:text-white">
+              <a
+                href={`https://www.youtube.com/c/${data.channelInfo.name}`}
+                className="hover:text-white"
+              >
                 {data.channelInfo.name}
               </a>
             </div>
