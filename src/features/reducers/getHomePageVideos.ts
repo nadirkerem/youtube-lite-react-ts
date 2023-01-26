@@ -1,16 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+
 import { RootState } from "../../store";
 import { HomePageVideos } from "../../types";
 import { parseData } from "../../utils";
 import { API_KEY, YOUTUBE_API_URL } from "../../utils/constants";
 
-export const getHomePageVideos = createAsyncThunk(
+const getHomePageVideos = createAsyncThunk(
   "youtube/homePageVideos",
   async (isNext: boolean, { getState }) => {
     const {
       youtube: { nextPageToken: nextPageTokenFromState, videos },
     } = getState() as RootState;
+
     const {
       data: { items, nextPageToken },
     } = await axios.get(
@@ -19,7 +21,11 @@ export const getHomePageVideos = createAsyncThunk(
       }`
     );
     console.log({ items, nextPageTokenFromState, nextPageToken });
+
     const parsedData: HomePageVideos[] = await parseData(items);
+
     return { parsedData: [...videos, ...parsedData], nextPageToken };
   }
 );
+
+export default getHomePageVideos;

@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
-import Spinner from "../components/Spinner";
-import SearchCard from "../components/SearchCard";
+
+import { Navbar, Sidebar, Spinner, SearchCard } from "../components";
+
 import { useAppDispatch, useAppSelector } from "../features/hooks";
 import { HomePageVideos } from "../types";
-import { clearVideos } from "../features/youtubeSlice";
-import { getSearchPageVideos } from "../features/reducers/getSearchPageVideos";
+import { clearVideos } from "../features";
+import { getSearchPageVideos } from "../features/reducers";
 
 export default function Search() {
   const dispatch = useAppDispatch();

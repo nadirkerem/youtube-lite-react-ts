@@ -1,5 +1,5 @@
-export { convertRawViewstoString } from "./convertRawViewsToString";
-export { parseVideoDuration } from "./parseVideoDuration";
-export { timeSince } from "./timeSince";
-export { parseData } from "./parseData";
-export { parseRecommendedData } from "./parseRecommendedData";
+export { default as convertRawViewstoString } from "./convertRawViewsToString";
+export { default as parseData } from "./parseData";
+export { default as parseRecommendedData } from "./parseRecommendedData";
+export { default as parseVideoDuration } from "./parseVideoDuration";
+export { default as timeSince } from "./timeSince";

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import youtubeSlice from "./features/youtubeSlice";
+import youtubeSlice from "./features";
 
 export const store = configureStore({
   reducer: {

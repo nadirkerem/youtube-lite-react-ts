@@ -1,11 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+
 import { RootState } from "../../store";
 import { HomePageVideos } from "../../types";
 import { parseData } from "../../utils";
 import { API_KEY, YOUTUBE_API_URL } from "../../utils/constants";
 
-export const getSearchPageVideos = createAsyncThunk(
+const getSearchPageVideos = createAsyncThunk(
   "youtube/searchPageVideos",
   async (isNext: boolean, { getState }) => {
     const {
@@ -23,3 +24,5 @@ export const getSearchPageVideos = createAsyncThunk(
     return { parsedData: [...videos, ...parsedData], nextPageToken };
   }
 );
+
+export default getSearchPageVideos;

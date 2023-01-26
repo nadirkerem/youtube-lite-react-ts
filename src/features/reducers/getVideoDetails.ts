@@ -1,9 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+
 import { convertRawViewstoString, timeSince } from "../../utils";
 import { API_KEY, YOUTUBE_API_URL } from "../../utils/constants";
 
-export const getVideoDetails = createAsyncThunk(
+const getVideoDetails = createAsyncThunk(
   "youtube/videoDetails",
   async (id: string) => {
     const {
@@ -59,3 +60,5 @@ const parseData = async (item: {
     },
   };
 };
+
+export default getVideoDetails;

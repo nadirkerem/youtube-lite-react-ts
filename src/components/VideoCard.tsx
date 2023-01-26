@@ -1,16 +1,17 @@
-import { RecommendedVideos } from "../types";
 import { Link } from "react-router-dom";
 
-export default function VideoCard({ data }: { data: RecommendedVideos }) {
+import { RecommendedVideos } from "../types";
+
+export default function WatchCard({ data }: { data: RecommendedVideos }) {
   return (
     <div className="flex gap-3">
       <div className="relative min-w-fit">
         <span className="absolute bottom-3 right-3 z-10 bg-gray-900 px-2 py-0.5 text-sm">
-          {data?.videoDuration}
+          {data.videoDuration}
         </span>
-        <Link to={`/watch/${data?.videoId}`}>
+        <Link to={`/watch/${data.videoId}`}>
           <img
-            src={data?.videoThumbnail}
+            src={data.videoThumbnail}
             className="h-24 w-40"
             alt="thumbnail"
           />
@@ -19,21 +20,21 @@ export default function VideoCard({ data }: { data: RecommendedVideos }) {
       <div className="flex flex-col gap-1">
         <h4 className="text-sm">
           <a href="#" className="line-clamp-2">
-            {data?.videoTitle}
+            {data.videoTitle}
           </a>
         </h4>
-        <div className="text-xs text-gray-400">
+        <div className="text-grap-400 text-xs">
           <div>
             <a href="#" className="hover:text-white">
-              {data?.channelInfo.name}
+              {data.channelInfo.name}
             </a>
           </div>
           <div>
             <div>
-              <span className="after:mx-1 after:content-['•']">
-                {data?.videoViews} views
+              <span className="after:mx-1 after:content-['|']">
+                {data.videoViews} views
               </span>
-              <span>{data?.videoAge}</span>
+              <span>{data.videoAge}</span>
             </div>
           </div>
         </div>

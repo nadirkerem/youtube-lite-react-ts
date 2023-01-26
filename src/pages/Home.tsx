@@ -1,13 +1,12 @@
 import { useEffect } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
-import Spinner from "../components/Spinner";
-import Card from "../components/Card";
 import { useAppDispatch, useAppSelector } from "../features/hooks";
-import { getHomePageVideos } from "../features/reducers/getHomePageVideos";
+import InfiniteScroll from "react-infinite-scroll-component";
+
+import { Navbar, Sidebar, Spinner, Card } from "../components";
+
+import { getHomePageVideos } from "../features/reducers";
 import { HomePageVideos } from "../types";
-import { clearVideos } from "../features/youtubeSlice";
+import { clearVideos } from "../features";
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -28,22 +27,24 @@ export default function Home() {
       <div style={{ height: "7.5vh" }}>
         <Navbar />
       </div>
-      <div className="flex" style={{ height: "92.5vh" }}>
+      <div className="flex" style={{ height: "92.5vh", width: "%100" }}>
         <Sidebar />
         {videos.length ? (
-          <InfiniteScroll
-            dataLength={videos.length}
-            next={() => dispatch(getHomePageVideos(true))}
-            hasMore={videos.length < 500}
-            loader={<Spinner />}
-            height={600}
-          >
-            <div className="grid grid-cols-4 gap-y-14 gap-x-8 p-8">
-              {videos.map((item: HomePageVideos) => {
-                return <Card data={item} key={item.videoId}></Card>;
-              })}
-            </div>
-          </InfiniteScroll>
+          <div className="w-full">
+            <InfiniteScroll
+              dataLength={videos.length}
+              next={() => dispatch(getHomePageVideos(true))}
+              hasMore={videos.length < 500}
+              loader={<Spinner />}
+              height={650}
+            >
+              <div className="grid grid-cols-4 gap-y-14 gap-x-8 p-8">
+                {videos.map((item: HomePageVideos, key) => (
+                  <Card data={item} key={key} />
+                ))}
+              </div>
+            </InfiniteScroll>
+          </div>
         ) : (
           <Spinner />
         )}

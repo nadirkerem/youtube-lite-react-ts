@@ -1,18 +1,19 @@
-import { HomePageVideos } from "../types";
 import { Link } from "react-router-dom";
+
+import { HomePageVideos } from "../types";
 
 export default function Card({ data }: { data: HomePageVideos }) {
   return (
     <div className="flex h-60 w-64 flex-col gap-3">
       <div className="relative">
         <span className="absolute bottom-3 right-3 z-10 bg-gray-900 px-2 py-0.5 text-sm">
-          {data?.videoDuration}
+          {data.videoDuration}
         </span>
-        <Link to={`/watch/${data?.videoId}`}>
+        <Link to={`/watch/${data.videoId}`}>
           <img
-            src={data?.videoThumbnail}
-            className="h-44 w-72"
+            src={data.videoThumbnail}
             alt="thumbnail"
+            className="h-44 w-72"
           />
         </Link>
       </div>
@@ -20,7 +21,7 @@ export default function Card({ data }: { data: HomePageVideos }) {
         <div className="min-w-fit">
           <a href="#">
             <img
-              src={data?.channelInfo.image}
+              src={data.channelInfo.image}
               alt="channel"
               className="h-9 w-9 rounded-full"
             />
@@ -29,20 +30,20 @@ export default function Card({ data }: { data: HomePageVideos }) {
         <div>
           <h3>
             <a href="#" className="line-clamp-2">
-              {data?.videoTitle.toLocaleString()}
+              {data.videoTitle}
             </a>
           </h3>
-          <div className="text-sm text-gray-400">
+          <div className="text-xs text-gray-400">
             <div>
               <a href="#" className="hover:text-white">
-                {data?.channelInfo.name}
+                {data.channelInfo.name}
               </a>
             </div>
             <div>
-              <span className="after:mx-1 after:content-['•']">
-                {data?.videoViews} views
+              <span className="after:mx-1 after:content-['|']">
+                {data.videoViews} views
               </span>
-              <span>{data?.videoAge}</span>
+              <span>{data.videoAge}</span>
             </div>
           </div>
         </div>

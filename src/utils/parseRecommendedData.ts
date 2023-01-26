@@ -4,12 +4,13 @@ import {
   parseVideoDuration,
   timeSince,
 } from "./index";
+
 import { YOUTUBE_API_URL } from "./constants";
 import { Item, RecommendedVideos } from "../types";
 
 const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 
-export const parseRecommendedData = async (items: Item[], videoId: string) => {
+const parseRecommendedData = async (items: Item[], videoId: string) => {
   try {
     const videoIds: string[] = [];
     const channelIds: string[] = [];
@@ -57,3 +58,5 @@ export const parseRecommendedData = async (items: Item[], videoId: string) => {
     console.log(err);
   }
 };
+
+export default parseRecommendedData;

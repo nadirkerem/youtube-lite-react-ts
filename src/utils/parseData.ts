@@ -9,7 +9,7 @@ import { HomePageVideos } from "../types";
 
 const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 
-export const parseData = async (items: any[]) => {
+const parseData = async (items: any[]) => {
   try {
     const videoIds: string[] = [];
     const channelIds: string[] = [];
@@ -94,3 +94,5 @@ export const parseData = async (items: any[]) => {
     console.log(err);
   }
 };
+
+export default parseData;

@@ -1,11 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+
 import { RootState } from "../../store";
 import { RecommendedVideos } from "../../types";
 import { parseRecommendedData } from "../../utils";
 import { API_KEY, YOUTUBE_API_URL } from "../../utils/constants";
 
-export const getRecommendedVideos = createAsyncThunk(
+const getRecommendedVideos = createAsyncThunk(
   "youtube/getRecommendedVideos",
   async (videoId: string, { getState }) => {
     const {
@@ -30,3 +31,5 @@ export const getRecommendedVideos = createAsyncThunk(
     return { parsedData };
   }
 );
+
+export default getRecommendedVideos;

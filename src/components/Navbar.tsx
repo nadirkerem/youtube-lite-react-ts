@@ -1,16 +1,13 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../features/hooks";
 
 import { AiOutlineSearch, AiOutlineClose, AiFillYoutube } from "react-icons/ai";
 import { BsBell, BsCameraVideo, BsMic } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaUserCircle } from "react-icons/fa";
-import { useAppDispatch, useAppSelector } from "../features/hooks";
-import {
-  changeSearchTerm,
-  clearSearchTerm,
-  clearVideos,
-} from "../features/youtubeSlice";
-import { getSearchPageVideos } from "../features/reducers/getSearchPageVideos";
+
+import { changeSearchTerm, clearSearchTerm, clearVideos } from "../features";
+import { getSearchPageVideos } from "../features/reducers";
 
 export default function Navbar() {
   const dispatch = useAppDispatch();
@@ -37,7 +34,7 @@ export default function Navbar() {
         <Link to="/">
           <div className="flex items-center justify-center gap-1">
             <AiFillYoutube className="text-3xl text-redPrimary" />
-            <span className="text-xl font-medium">YouTube</span>
+            <span className="text-xl font-medium">YouTube Lite</span>
           </div>
         </Link>
       </div>

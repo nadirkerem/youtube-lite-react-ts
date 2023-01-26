@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import VideoCard from "../components/VideoCard";
-import { useAppDispatch, useAppSelector } from "../features/hooks";
-import { getRecommendedVideos } from "../features/reducers/getRecommendedVideos";
-import { getVideoDetails } from "../features/reducers/getVideoDetails";
 
 import { BiLike, BiDislike } from "react-icons/bi";
 import { FaShare } from "react-icons/fa";
 import { HiScissors } from "react-icons/hi";
 import { MdOutlinePlaylistAdd } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
+
+import { Navbar, VideoCard } from "../components";
+
+import { useAppDispatch, useAppSelector } from "../features/hooks";
+import { getRecommendedVideos, getVideoDetails } from "../features/reducers";
 
 export default function Video() {
   const [showMore, setShowMore] = useState(false);
