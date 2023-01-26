@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import { BiLike, BiDislike } from "react-icons/bi";
-import { FaShare } from "react-icons/fa";
-import { HiScissors } from "react-icons/hi";
-import { MdOutlinePlaylistAdd } from "react-icons/md";
-import { BsThreeDots } from "react-icons/bs";
-
 import { Navbar, VideoCard } from "../components";
 
 import { useAppDispatch, useAppSelector } from "../features/hooks";
@@ -65,35 +59,14 @@ export default function Video() {
                         <span className="after:mx-1 after:content-['•']">
                           {currentPlaying.videoViews} views
                         </span>
-                        <span> {currentPlaying.videoAge} ago</span>
+                        <span className="after:mx-1 after:content-['•']">
+                          {currentPlaying.videoAge} ago
+                        </span>
+                        <span>{currentPlaying.videoLikes} likes</span>
                       </div>
-                      <div className="flex items-center gap-4 uppercase">
-                        <div className="flex cursor-pointer items-center gap-1">
-                          <BiLike className="text-xl" />
-                          <strong>{currentPlaying.videoLikes}</strong>
-                        </div>
-                        <div className="flex cursor-pointer items-center gap-1">
-                          <BiDislike className="text-xl" />
-                          <strong>dislike</strong>
-                        </div>
-                        <div className="flex cursor-pointer items-center gap-1">
-                          <FaShare className="text-xl" />
-                          <strong>share</strong>
-                        </div>
-                        <div className="flex cursor-pointer items-center gap-1">
-                          <HiScissors className="text-xl" />
-                          <strong>clip</strong>
-                        </div>
-                        <div className="flex cursor-pointer items-center gap-1">
-                          <MdOutlinePlaylistAdd className="text-xl" />
-                          <strong>save</strong>
-                        </div>
-                        <div className="flex cursor-pointer items-center gap-1">
-                          <BsThreeDots className="text-xl" />
-                        </div>
-                      </div>
+                      <div className="flex items-center gap-4 uppercase"></div>
                     </div>
-                    <div className="my-5 flex flex-col gap-4 border-2 border-solid border-gray-400 border-l-transparent border-r-transparent pb-3">
+                    <div className="my-5 flex flex-col gap-4 border-2 border-solid border-darkTertiary border-l-transparent border-r-transparent pb-3">
                       <div className="mr-5 mt-4 flex items-center gap-5">
                         <div>
                           <img
@@ -109,11 +82,6 @@ export default function Video() {
                           <h6 className="text-xs text-gray-400">
                             {currentPlaying.channelInfo.subscribers} subscribers
                           </h6>
-                        </div>
-                        <div>
-                          <button className="rounded-sm bg-red-600 p-2 text-sm uppercase tracking-wider">
-                            subscribe
-                          </button>
                         </div>
                       </div>
                       <div
