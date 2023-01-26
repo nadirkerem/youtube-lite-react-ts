@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { InitialState } from "../types";
 import {
+  getCategoryVideos,
   getHomePageVideos,
   getRecommendedVideos,
   getSearchPageVideos,
@@ -13,6 +14,7 @@ const initialState: InitialState = {
   currentPlaying: null,
   searchTerm: "",
   searchResults: [],
+  selectedCategory: "",
   nextPageToken: null,
   recommendedVideos: [],
 };
@@ -25,6 +27,9 @@ export const youtubeSlice = createSlice({
       state.videos = [];
       state.nextPageToken = null;
     },
+    changeCategory: (state, action: PayloadAction<string>) => {
+      state.selectedCategory = action.payload;
+    },
     changeSearchTerm: (state, action: PayloadAction<string>) => {
       state.searchTerm = action.payload;
     },
@@ -33,6 +38,10 @@ export const youtubeSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(getCategoryVideos.fulfilled, (state, action) => {
+      state.videos = action.payload.parsedData;
+      state.nextPageToken = action.payload.nextPageToken;
+    });
     builder.addCase(getHomePageVideos.fulfilled, (state, action) => {
       state.videos = action.payload.parsedData;
       state.nextPageToken = action.payload.nextPageToken;
@@ -50,7 +59,11 @@ export const youtubeSlice = createSlice({
   },
 });
 
-export const { clearVideos, changeSearchTerm, clearSearchTerm } =
-  youtubeSlice.actions;
+export const {
+  clearVideos,
+  changeCategory,
+  changeSearchTerm,
+  clearSearchTerm,
+} = youtubeSlice.actions;
 
 export default youtubeSlice.reducer;

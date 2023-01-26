@@ -3,6 +3,7 @@ export interface InitialState {
   currentPlaying: CurrentPlaying | null;
   searchTerm: string;
   searchResults: [];
+  selectedCategory: string;
   nextPageToken: string | null;
   recommendedVideos: RecommendedVideos[];
 }
