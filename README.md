@@ -1,5 +1,5 @@
-# Youtube Clone
+# Youtube Lite
 
-A YouTube clone built with React, allowing users to display and search through video content by utilizing the YouTube Data API.
+Lite version of YouTube built with React, Redux Toolkit and Typescript, allowing users to display and search through video content by utilizing the YouTube API.
 
 This project has not yet completed.
